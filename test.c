@@ -40,42 +40,56 @@ void create_triangle(t_data address)
 
 int	ft_close(int keycode, t_vars *vars)
 {
-	if (keycode == 53)
+    mlx_destroy_window(vars->mlx, vars->window);
+	exit(0);
+}
+
+int	key_hook(int keycode, t_vars *vars)
+{
+	printf("%d\n", keycode);
+	if (keycode == 53 || keycode == 27)
 	{
     	mlx_destroy_window(vars->mlx, vars->window);
 		exit(0);
 	}
 }
 
-int	key_hook(int keycode, t_vars *vars)
+int mouse_hook(int button, int x, int y, void *param)
 {
-	printf("%d\n", keycode);
+	printf("%d\n", button);
 }
 
 int	main(void)
 {
     t_vars vars;
+
     //images
 	t_data	img;
     t_data  triangle;
 
+	// inits the mlx pointer and window
 	vars.mlx = mlx_init();
 	vars.window = mlx_new_window(vars.mlx, 600, 300, "Hello world!");
 
+	//creates a new imgage and gives it a address
 	img.img = mlx_new_image(vars.mlx, 600, 300);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 
     triangle.img = mlx_new_image(vars.mlx, 600, 300);
 	triangle.addr = mlx_get_data_addr(triangle.img, &triangle.bits_per_pixel, &triangle.line_length, &triangle.endian);
 
-    // creates a red pixel on pos(5, 5);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-
     create_triangle(triangle);
-    //                                   image to pass, offset
-	//mlx_put_image_to_window(mlx, mlx_window, img.img, 20, 20);
+
 	mlx_put_image_to_window(vars.mlx, vars.window, triangle.img, 20, 20);
+
+
+	//handles key strokes
 	mlx_key_hook(vars.window, key_hook, &vars);
-    mlx_hook(vars.window, 2, 1L<<0, ft_close, &vars);
+	//handles mouse key strokes
+	mlx_mouse_hook(vars.window, &mouse_hook, 0);
+
+	// when press (x) program exits --> handle the segfault
+	mlx_hook(vars.window, 17, 1L<<17, ft_close, &vars);
+
 	mlx_loop(vars.mlx);
 }
