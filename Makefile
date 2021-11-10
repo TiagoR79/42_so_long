@@ -6,8 +6,9 @@ NAME	= so_long
 
 
 	# Mandatory Variables #
-SRC		=	test.c
-INC		=
+SRC		=	./srcs/main.c \
+			./srcs/*/*.c
+INC		=	./includes/so_long.h
 
 	# Compiling Variables #
 CC			=	gcc
@@ -24,7 +25,7 @@ $(NAME): all
 #	@ $(CC) $(CFLAG) $(SRC) $(FLAGS_MAC) -o $(NAME)
 #	@printf "so_long ready.\n"
 $(NAME):
-	@ $(CC) $(CFLAG) $(SRC) $(FLAGS_LINUX) -o $(NAME)
+	@ $(CC) $(CFLAG) $(SRC) $(INC) $(FLAGS_LINUX) -o $(NAME)
 	@printf "so_long ready.\n"
 #$(LIBFT):
 #	@ $(MAKE) -C ./libft
