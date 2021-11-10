@@ -7,11 +7,11 @@ NAME	= so_long
 
 	# Mandatory Variables #
 SRC		=	test.c
-INC		=	
+INC		=
 
 	# Compiling Variables #
 CC			=	gcc
-CFLAG		=	-Wall -Wextra 
+CFLAG		=	#-Wall -Wextra -Werror
 FLAGS_LINUX	=	-lbsd -lmlx -lXext -lX11
 FLAGS_MAC	=	-lmlx -framework OpenGL -framework AppKit -lm
 RM			=	rm -f
@@ -20,10 +20,12 @@ all: $(NAME)
 
 $(NAME): all
 
-$(NAME): 
-	@ $(CC) $(CFLAG) $(SRC) $(FLAGS_MAC) -o $(NAME)
+#$(NAME):
+#	@ $(CC) $(CFLAG) $(SRC) $(FLAGS_MAC) -o $(NAME)
+#	@printf "so_long ready.\n"
+$(NAME):
+	@ $(CC) $(CFLAG) $(SRC) $(FLAGS_LINUX) -o $(NAME)
 	@printf "so_long ready.\n"
-
 #$(LIBFT):
 #	@ $(MAKE) -C ./libft
 
