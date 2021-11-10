@@ -8,7 +8,8 @@ NAME	= so_long
 	# Mandatory Variables #
 SRC		=	./srcs/main.c \
 			./srcs/*/*.c
-INC		=	./includes/so_long.h
+
+INC		=	./includes/*.h
 
 	# Compiling Variables #
 CC			=	gcc

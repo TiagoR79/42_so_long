@@ -6,13 +6,14 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:26:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/10 11:56:10 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/10 14:56:23 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
+#include "../includes/get_next_line.h"
 #include <mlx.h>
 #include <unistd.h>
 #include <stdlib.h>
