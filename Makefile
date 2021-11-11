@@ -1,15 +1,15 @@
 	# Library Name #
 NAME	= so_long
 	# libft Variables #
-#LIBFT		=	./libft/libft.a
-#LIBFT_DIR	=	./libft
+LIBFT		=	./libft/libft.a
+LIBFT_DIR	=	./libft
 
 
 	# Mandatory Variables #
 SRC		=	./srcs/main.c \
 			./srcs/*/*.c
 
-INC		=	./includes/*.h
+INC		=	./includes/*.h -I$(LIBFT_DIR)
 
 	# Compiling Variables #
 CC			=	gcc
@@ -20,22 +20,26 @@ RM			=	rm -f
 
 all: $(NAME)
 
+compile_libraries:
+	$(MAKE) -C $(LIBFT_DIR)
+	mv $(LIBFT_DIR)/libft.a .
+
 $(NAME): all
 
-#$(NAME):
-#	@ $(CC) $(CFLAG) $(SRC) $(FLAGS_MAC) -o $(NAME)
+#$(NAME): compile_libraries
+#	@ $(CC) $(CFLAG) $(SRC) $(INC) $(FLAGS_MAC) -o $(NAME)
 #	@printf "so_long ready.\n"
-$(NAME):
+$(NAME): compile_libraries
 	@ $(CC) $(CFLAG) $(SRC) $(INC) $(FLAGS_LINUX) -o $(NAME)
 	@printf "so_long ready.\n"
-#$(LIBFT):
-#	@ $(MAKE) -C ./libft
 
 clean:
-						rm -f $(NAME)
+	rm -f $(NAME)
 
-fclean:
-						rm -rf $(NAME)
+fclean:	clean
+	make fclean -C ./libft
+	rm -f libft.a
+	@printf "all cleaned.\n"
 
 re: fclean all
 
