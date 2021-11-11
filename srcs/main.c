@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:25:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/11 11:04:49 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/11 15:19:28 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 /* static */ void	init_game_info(t_game *info)
 {
 	info->map_y = 0;
+	info->exits = 0;
+	info->players = 0;
+	info->collectibles = 0;
 }
 
 int main(int ac, char **av)

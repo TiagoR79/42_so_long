@@ -32,6 +32,7 @@ $(NAME): all
 $(NAME): compile_libraries
 	@ $(CC) $(CFLAG) $(SRC) $(INC) $(FLAGS_LINUX) -o $(NAME)
 	@printf "so_long ready.\n"
+	@printf "\n=========================\n\n"
 
 clean:
 	rm -f $(NAME)

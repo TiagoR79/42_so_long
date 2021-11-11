@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:26:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/11 11:23:44 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/11 15:18:33 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ typedef struct	s_game
 {
 	int map_x;
 	int map_y;
+	int exits;
+	int players;
+	int collectibles;
 }				t_game;
 
 
