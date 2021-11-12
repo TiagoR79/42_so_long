@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "*.js": "javascriptreact",
-        "get_next_line.h": "c"
-    }
-}

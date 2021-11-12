@@ -1,5 +1,5 @@
 NAME = libft.a
-SRC = ft_atoi ft_putchar_fd ft_putnbr_fd ft_putstr_fd ft_strdup ft_strlen
+SRC = ft_atoi ft_putchar_fd ft_putnbr_fd ft_putstr_fd ft_strdup ft_strlen ft_calloc
 CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -I.

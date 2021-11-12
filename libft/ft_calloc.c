@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 07:45:07 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/12 11:26:11 by tribeiro         ###   ########.fr       */
+/*   Created: 2021/11/12 11:06:50 by tribeiro          #+#    #+#             */
+/*   Updated: 2021/11/12 11:19:00 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	char			*arr;
+	size_t			i;
+	unsigned int	total;
 
-int		ft_strlen(char *str);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-int		ft_atoi(const char *str);
-char	*ft_strdup(const char *s);
-void	*ft_calloc(size_t nmemb, size_t size);
-
-#endif
+	total = nmemb * size;
+	arr = malloc(total);
+	if (arr == NULL)
+		return (NULL);
+	i = 0;
+	while (total--)
+	{
+		arr[i] = 0;
+		i++;
+	}
+	return ((void *)arr);
+}
