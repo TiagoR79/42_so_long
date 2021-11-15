@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:49:18 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/12 15:02:05 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/15 10:34:26 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,27 +51,6 @@ int validate_line(char *line, t_game *info)
 	return(1);
 }
 
-/* int	form_matrix(char *line, t_game *info)
-{
-	size_t		count;
-	int		i;
-	char	**lines;
-
-	count = (size_t)info->map_y + 1;
-	lines = ft_calloc(count, sizeof(char **));
-	if (!lines)
-		return (-1);
-	i = -1;
-	while (++i < info->map_y)
-		lines[i] = info->map_array[i];
-	lines[i] = line;
-	if (info->map_array)
-		free(info->map_array);
-	info->map_array = lines;
-	info->map_y++;
-	return (1);
-} */
-
 int handle_map(char *file, t_game *info)
 {
 	int fd;
@@ -89,7 +68,6 @@ int handle_map(char *file, t_game *info)
 			free(line);
 			exit (0);
 		}
-		//form_matrix(line, info);
 		info->map_y++;
 		printf("Debug:\t%s\n", line);
 		printf("Debug:\tmap_y: %d\n", info->map_y);
