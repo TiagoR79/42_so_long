@@ -13,7 +13,7 @@ INC		=	./includes/*.h -I$(LIBFT_DIR)
 
 	# Compiling Variables #
 CC			=	gcc
-CFLAG		=	-g#-fsanitize=address #-Wall -Wextra -Werror
+CFLAG		=	-g #-fsanitize=address #-Wall -Wextra -Werror
 FLAGS_LINUX	=	-lbsd -lmlx -lXext -lX11
 FLAGS_MAC	=	-lmlx -framework OpenGL -framework AppKit -lm
 RM			=	rm -f

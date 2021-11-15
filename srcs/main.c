@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:25:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/15 15:20:47 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/15 16:22:52 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ int main(int ac, char **av)
 
 	/* mlx_loop(vars.mlx); */
 
+	free(game_info.map_array[0]);
+	free(game_info.map_array[1]);
+	free(game_info.map_array[2]);
+	free(game_info.map_array[3]);
+	free(game_info.map_array[4]);
 	free(game_info.map_array);
 	return(1);
 }
