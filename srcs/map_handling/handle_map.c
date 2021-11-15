@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:49:18 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/15 15:31:20 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/15 15:41:08 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,16 @@ int validate_map(t_game *info)
 	int i;
 	int j;
 
-	//printf("iteration n: %d\n", info->map_y);
-	//printf("X: %d\n", info->map_x);
 	i = 0;
 	while (i < info->map_y)
 	{
 		j = 0;
-		//printf("Debug:\tmap_array[i]: %s\n", info->map_array[i]);
-		//printf("Debug:\titeration n: %d\n", i + 1);
 		if (i == 0 || i == info->map_y - 1)
 		{
-			//printf("Debug:\tInside if 1\n");
 			while (info->map_array[i][j] != '\0')
 			{
 				if(info->map_array[i][j] != '1')
 				{
-					//printf("Debug:\tif != 1\n");
 					return(0);
 				}
 				j++;
@@ -40,9 +34,6 @@ int validate_map(t_game *info)
 		}
 		else
 		{
-			//printf("Debug:\tInside Else\n");
-			//printf("DEBUG:\tstrlen map : %d\n", (int)ft_strlen(map));
-			//printf("DEBUG:\tmap_x : %d\n", info->map_x);
 			if((int)ft_strlen(info->map_array[i]) != info->map_x)
 				return(0);
 			else if (info->map_array[i][0] != '1' || info->map_array[i][info->map_x - 1] != '1')
@@ -57,9 +48,7 @@ int validate_map(t_game *info)
 					info->collectibles += 1;
 				j++;
 			}
-			//printf("DEBUG:\tthis is :%c\n", map[info->map_x - 1]);
 		}
-		//printf("Debug:\tNext Iteration\n");
 		i++;
 	}
 	return(1);
