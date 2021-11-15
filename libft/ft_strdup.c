@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 09:52:58 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/10/27 07:50:59 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/15 15:30:23 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	while (s[len] != '\0')
 		len++;
-	dup = malloc(sizeof(*dup) * len + 1);
+	dup = (char *)malloc(sizeof(char) * len + 1);
 	if (dup == NULL)
 		return (NULL);
 	while (i < len)

@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:25:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/15 11:31:13 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/15 15:20:47 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ int main(int ac, char **av)
 	vars.window = mlx_new_window(vars.mlx, 600, 300, "Hello world!"); */
 
 	/* mlx_loop(vars.mlx); */
+
+	free(game_info.map_array);
 	return(1);
 }
