@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:25:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/15 16:22:52 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/16 11:46:53 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,20 @@ int main(int ac, char **av)
 {
 	t_vars vars;
 	t_game game_info;
+	int i;
 
 	if(ac != 2)
 		printf("Arguments Format Error\n");
 	init_game_info(&game_info);
 	handle_map(av[1], &game_info);
-/* 	vars.mlx = mlx_init();
-	vars.window = mlx_new_window(vars.mlx, 600, 300, "Hello world!"); */
+	//vars.mlx = mlx_init();
+	//vars.window = mlx_new_window(vars.mlx, game_info.map_x * 32, game_info.map_y * 32, "Hello world!");
 
-	/* mlx_loop(vars.mlx); */
+	//mlx_loop(vars.mlx);
 
-	free(game_info.map_array[0]);
-	free(game_info.map_array[1]);
-	free(game_info.map_array[2]);
-	free(game_info.map_array[3]);
-	free(game_info.map_array[4]);
+	i = 0;
+	while(i < game_info.map_y)
+		free(game_info.map_array[i++]);
 	free(game_info.map_array);
 	return(1);
 }

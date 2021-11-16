@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:26:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/12 11:10:46 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/16 11:46:49 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+
+
+# define ERROR_MAP_BORDER "Map not surrounded by walls (1)\n"
+# define ERROR_MAP_RECTANGLE "Map is not a rectangle\n"
+# define ERROR_MAP_EXITS "There must be atleast one Exit\n"
+# define ERROR_MAP_PLAYERS "There must be atleast one Player\n"
+# define ERROR_MAP_COLLECTIBLES "There must be atleast one Collectible\n"
 
 
 typedef struct  s_vars {
@@ -48,6 +55,7 @@ typedef struct	s_game
 }				t_game;
 
 
+int error(char *type, t_game *info);
 int handle_map(char *file, t_game *info);
 
 #endif

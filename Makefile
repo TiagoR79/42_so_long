@@ -6,7 +6,7 @@ LIBFT_DIR	=	./libft
 
 
 	# Mandatory Variables #
-SRC		=	./srcs/main.c \
+SRC		=	./srcs/*.c \
 			./srcs/*/*.c
 
 INC		=	./includes/*.h -I$(LIBFT_DIR)
@@ -21,8 +21,8 @@ RM			=	rm -f
 all: $(NAME)
 
 compile_libraries:
-	$(MAKE) -C $(LIBFT_DIR)
-	mv $(LIBFT_DIR)/libft.a .
+	@ $(MAKE) -C $(LIBFT_DIR)
+	@ mv $(LIBFT_DIR)/libft.a .
 
 $(NAME): all
 
