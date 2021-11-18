@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:25:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/18 10:26:31 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/18 16:06:37 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ int main(int ac, char **av)
 	init_game_info(&game_info);
 	handle_map(av[1], &game_info);
 	handle_window(&game_info);
+	mlx_key_hook(game_info.window, key_hook, &game_info);
+	mlx_hook(game_info.window, 17, 1L, ft_close, &game_info);
 	mlx_loop(game_info.mlx);
-	free_array(&game_info);
+	//free_array(&game_info);
 	return(1);
 }

@@ -6,22 +6,23 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:34:51 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/18 10:45:19 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/18 16:05:07 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void free_exit(t_game *info)
-{
-	free_array(info);
-	exit(0);
-}
-
 int	ft_close(int keycode, t_game *vars)
 {
+	free_array(vars);
+	mlx_destroy_image(vars->mlx, vars->img_floor.img);
+	mlx_destroy_image(vars->mlx, vars->img_player.img);
+	mlx_destroy_image(vars->mlx, vars->img_collectible.img);
+	mlx_destroy_image(vars->mlx, vars->img_exit.img);
+	mlx_destroy_image(vars->mlx, vars->img_wall.img);
     mlx_destroy_window(vars->mlx, vars->window);
-	return(0);
+	exit(0);
+	return(1);
 }
 
 int	key_hook(int keycode, t_game *vars)
@@ -72,7 +73,7 @@ void	get_map_coordinates(int x, int y, t_map_coords *coords)
 	coords->y = ASSET_SIZE * y;
 }
 
-void	fill_first_map(t_game *game)
+void	render_map(t_game *game)
 {
 	int				row;
 	int				column;
@@ -106,13 +107,8 @@ int handle_window(t_game *game_info)
 	game_info->mlx = mlx_init();
 	game_info->window = mlx_new_window(game_info->mlx, game_info->map_x * ASSET_SIZE, game_info->map_y * ASSET_SIZE, "Game Window");
 	if (!load_textures(game_info))
-		error("", game_info);
-	fill_first_map(game_info);
-	//imgs to window
-
-	if(!mlx_key_hook(game_info->window, key_hook, &game_info))
-		free_exit(game_info);
-	if(!mlx_hook(game_info->window, 17, 1L<<17, ft_close, &game_info))
-		free_exit(game_info);
+		error("Failed to Load Assets\n", game_info);
+	render_map(game_info);
+		//free_exit(game_info);
 	return(1);
 }
