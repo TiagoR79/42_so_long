@@ -6,11 +6,11 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:49:18 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/16 11:44:36 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/17 10:33:55 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../includes/so_long.h"
 
 int validate_map(t_game *info)
 {
