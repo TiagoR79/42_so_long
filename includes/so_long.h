@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:26:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/17 10:48:42 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/18 10:36:01 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@
 # define ERROR_MAP_PLAYERS "There must be atleast one Player\n"
 # define ERROR_MAP_COLLECTIBLES "There must be atleast one Collectible\n"
 
-
-typedef struct  s_vars {
-    void *mlx;
-    void *window;
-}               t_vars;
+typedef struct s_map_coords {
+	int	x;
+	int	y;
+}				t_map_coords;
 
 typedef struct	s_data {
 	void	*img;
@@ -43,16 +42,25 @@ typedef struct	s_data {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		img_height;
+	int		img_width;
 }				t_data;
 
 typedef struct	s_game
 {
+	void *mlx;
+    void *window;
 	int map_x;
 	int map_y;
 	char **map_array;
 	int exits;
 	int players;
 	int collectibles;
+	t_data		img_floor;
+	t_data		img_wall;
+	t_data		img_player;
+	t_data		img_collectible;
+	t_data		img_exit;
 }				t_game;
 
 
@@ -60,6 +68,6 @@ int free_array(t_game *game_info);
 
 int error(char *type, t_game *info);
 int handle_map(char *file, t_game *info);
-int handle_window(t_game *game_info, t_vars *vars);
+int handle_window(t_game *game_info);
 
 #endif
