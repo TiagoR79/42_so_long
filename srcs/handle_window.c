@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:34:51 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/18 16:05:07 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/19 14:57:38 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,6 @@ int	ft_close(int keycode, t_game *vars)
 	mlx_destroy_image(vars->mlx, vars->img_wall.img);
     mlx_destroy_window(vars->mlx, vars->window);
 	exit(0);
-	return(1);
-}
-
-int	key_hook(int keycode, t_game *vars)
-{
-	printf("%d\n", keycode);
-	if (keycode == 65307 || keycode == 53)
-		ft_close(keycode, vars);
 	return(1);
 }
 
@@ -87,19 +79,25 @@ void	render_map(t_game *game)
 		while (++row < game->map_x)
 		{
 			get_map_coordinates(row, column, &coords);
-			if (game->map_array[column][row] == '0')
+			if (game->map_array[column][row] == 'P')
+			{
+				asset = &game->img_player;
+				game->player_position.column = column;
+				game->player_position.row = row;
+			}
+			else if (game->map_array[column][row] == '0')
 				asset = &game->img_floor;
 			else if (game->map_array[column][row] == '1')
 				asset = &game->img_wall;
 			else if (game->map_array[column][row] == 'C')
 				asset = &game->img_collectible;
-			else if (game->map_array[column][row] == 'P')
-				asset = &game->img_player;
 			else
 				asset = &game->img_exit;
 			render_asset(game, asset, &coords);
 		}
 	}
+	/* printf("DEBUG:  %d\n", game->player_position.row);
+	printf("DEBUG:  %d\n", game->player_position.column); */
 }
 
 int handle_window(t_game *game_info)

@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:25:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/18 16:06:37 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/19 13:11:42 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 	info->exits = 0;
 	info->players = 0;
 	info->collectibles = 0;
+	info->player_position.row = 0;
+	info->player_position.column = 0;
 }
 
 int free_array(t_game *game_info)
@@ -28,6 +30,7 @@ int free_array(t_game *game_info)
 	while(i < game_info->map_y)
 		free(game_info->map_array[i++]);
 	free(game_info->map_array);
+	return (1);
 }
 
 int main(int ac, char **av)
