@@ -6,7 +6,7 @@
 #    By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/19 11:25:50 by tribeiro          #+#    #+#              #
-#    Updated: 2021/11/19 12:40:25 by tribeiro         ###   ########.fr        #
+#    Updated: 2021/11/20 09:12:11 by tribeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRC		=	./srcs/*.c \
 INC		=	./includes/*.h -I$(LIBFT_DIR)
 
 	# Compiling Variables #
-CC			=	clang #gcc
+CC			=	gcc
 CFLAG		=	#-Wall -Wextra -Werror#-g #-fsanitize=address
 
 FLAGS_LINUX	=	-lbsd -lmlx -lXext -lX11
@@ -41,17 +41,12 @@ compile_libraries:
 
 $(NAME): all
 
-#$(NAME): compile_libraries
-#	@ $(CC) $(CFLAG) $(SRC) $(INC) $(FLAGS_MAC) -o $(NAME)
-#	@printf "so_long ready.\n"
 $(NAME): compile_libraries #$(LIBFT) $(SRC)
-	@$(CC) $(CFLAG) $(FLAGS_MAC) $(SRC) -o $(NAME)
-#	@ $(CC) $(CFLAG) $(SRC) $(INC) $(FLAGS_LINUX) -o $(NAME)
+#	@$(CC) $(CFLAG) $(FLAGS_MAC) $(SRC) -o $(NAME)
+	@ $(CC) $(CFLAG) $(SRC) $(FLAGS_LINUX) -o $(NAME)
 	@printf "so_long ready.\n"
 	@printf "\n=========================\n\n"
 
-#$(LIBFT):
-#	@ $(MAKE) -C ./libft/
 
 clean:
 	rm -f $(NAME)

@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 12:47:47 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/19 14:59:51 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/21 16:11:05 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ int	key_hook(int keycode, t_game *vars)
 {
 	int column;
 	int row;
-	t_data coords;
+	//t_map_coords coords;
 	t_data *asset;
 
-	column = vars->player_position.column;
-	row = vars->player_position.row;
+	column 	= vars->player_position.column;
+	row 	= vars->player_position.row;
 	//printf("%d\n", keycode);
 	if (keycode == 65307 || keycode == 53)
 		ft_close(keycode, vars);
 	// W key
-	if (keycode == 13 || keycode == 126)
+	if (keycode == 13 || keycode == 126 || keycode == 119)
 	{
-		get_map_coordinates(row, column, &coords);
+		//get_map_coordinates(row, column, &coords);
 		if(vars->map_array[column - 1][row] == '1')
 			return(1);
 		if(vars->map_array[column - 1][row] == 'C')
@@ -49,9 +49,10 @@ int	key_hook(int keycode, t_game *vars)
 				//render end screen??
 		render_map(vars);
 	}
-	if (keycode == 1 || keycode == 125)
+	// S key
+	if (keycode == 1 || keycode == 125 || keycode == 115)
 	{
-		get_map_coordinates(row, column, &coords);
+		//get_map_coordinates(row, column, &coords);
 		if(vars->map_array[column + 1][row] == '1')
 			return(1);
 		if(vars->map_array[column + 1][row] == 'C')
@@ -73,9 +74,10 @@ int	key_hook(int keycode, t_game *vars)
 				//render end screen??
 		render_map(vars);
 	}
-	if (keycode == 2 || keycode == 124)
+	// D key
+	if (keycode == 2 || keycode == 124 || keycode == 100)
 	{
-		get_map_coordinates(row, column, &coords);
+		//get_map_coordinates(row, column, &coords);
 		if(vars->map_array[column][row + 1] == '1')
 			return(1);
 		if(vars->map_array[column][row + 1] == 'C')
@@ -97,9 +99,10 @@ int	key_hook(int keycode, t_game *vars)
 				//render end screen??
 		render_map(vars);
 	}
-	if (keycode == 0 || keycode == 123)
+	// A key
+	if (keycode == 0 || keycode == 123 || keycode == 97)
 	{
-		get_map_coordinates(row, column, &coords);
+		//get_map_coordinates(row, column, &coords);
 		if(vars->map_array[column][row - 1] == '1')
 			return(1);
 		if(vars->map_array[column][row - 1] == 'C')
