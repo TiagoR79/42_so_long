@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:34:51 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/19 14:57:38 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/23 10:45:38 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_close(int keycode, t_game *vars)
 	return(1);
 }
 
-static int	xpm_to_image_wrapper(t_game *game, t_data *image, char *filename)
+int	xpm_to_image_wrapper(t_game *game, t_data *image, char *filename)
 {
 	image->img = mlx_xpm_file_to_image(game->mlx,
 			filename, &image->img_width, &image->img_height);
@@ -41,11 +41,11 @@ int	load_textures(t_game *info)
 	xpm_to_image_wrapper(info, &info->img_exit,
 		"./assets/ladder.xpm");
 	xpm_to_image_wrapper(info, &info->img_collectible,
-		"./assets/ball.xpm");
+		"./assets/ball_new.xpm");
 	xpm_to_image_wrapper(info, &info->img_wall,
 		"./assets/tile01.xpm");
 	xpm_to_image_wrapper(info, &info->img_player,
-		"./assets/loading0.xpm");
+		"./assets/player_W.xpm");
 	if (!info->img_floor.img || !info->img_exit.img
 		|| !info->img_collectible.img || !info->img_wall.img
 		|| !info->img_player.img)

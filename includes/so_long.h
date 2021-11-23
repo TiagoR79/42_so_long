@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:26:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/19 13:09:02 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/23 10:32:16 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,14 @@ int handle_window(t_game *game_info);
 
 int	ft_close(int keycode, t_game *vars);
 int	key_hook(int keycode, t_game *vars);
-static int	xpm_to_image_wrapper(t_game *game, t_data *image, char *filename);
+int	xpm_to_image_wrapper(t_game *game, t_data *image, char *filename);
 int	load_textures(t_game *info);
 void	render_asset(t_game *game, t_data *asset, t_map_coords *coords);
 void	get_map_coordinates(int x, int y, t_map_coords *coords);
 void	render_map(t_game *game);
 
 int	key_hook(int keycode, t_game *vars);
+
 
 
 #endif
