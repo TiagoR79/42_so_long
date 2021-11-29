@@ -6,13 +6,13 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:34:51 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/23 10:45:38 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/29 15:53:45 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	ft_close(int keycode, t_game *vars)
+int	ft_close(t_game *vars)
 {
 	free_array(vars);
 	mlx_destroy_image(vars->mlx, vars->img_floor.img);
