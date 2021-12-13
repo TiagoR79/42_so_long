@@ -6,20 +6,21 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:25:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/21 16:05:19 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/11/30 15:28:09 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-/* static */ void	init_game_info(t_game *info)
+/* static */ void	init_game_info(t_game *vars)
 {
-	info->map_y = 0;
-	info->exits = 0;
-	info->players = 0;
-	info->collectibles = 0;
-	info->player_position.row = 0;
-	info->player_position.column = 0;
+	vars->map_y = 0;
+	vars->exits = 0;
+	vars->players = 0;
+	vars->collectibles = 0;
+	vars->player_position.row = 0;
+	vars->player_position.column = 0;
+	vars->moves = 0;
 }
 
 int free_array(t_game *game_info)

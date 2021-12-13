@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 12:47:47 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/29 15:56:09 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/13 12:12:18 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	key_hook(int keycode, t_game *vars)
 
 	column 	= vars->player_position.column;
 	row 	= vars->player_position.row;
-	printf("%d\n", keycode);
+	//printf("%d\n", keycode);
 	if (keycode == 65307 || keycode == 53)
 		ft_close(vars);
 	// W key
@@ -135,5 +135,7 @@ int	key_hook(int keycode, t_game *vars)
 		}
 		render_map(vars);
 	}
+	printf("Moves: \r%d", ++vars->moves);
+	//printf("%d", ++vars->moves);
 	return(1);
 }

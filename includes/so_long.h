@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:26:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/29 15:54:04 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/13 12:00:32 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,31 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+// Asset size defaulted to 64 -> .xpm files must be 64x64 pixels (not confirmed in code -> to do)
 # define ASSET_SIZE 64
 
+// Define the messages for error types
 # define ERROR_MAP_BORDER "Map not surrounded by walls (1)\n"
 # define ERROR_MAP_RECTANGLE "Map is not a rectangle\n"
+# define ERROR_MAP_ASSETS "There is atleast one type of asset missing, check the map before submiting\n"
+/*
 # define ERROR_MAP_EXITS "There must be atleast one Exit\n"
 # define ERROR_MAP_PLAYERS "There must be atleast one Player\n"
 # define ERROR_MAP_COLLECTIBLES "There must be atleast one Collectible\n"
-
+ */
+// map coordinates to render the different sprites
 typedef struct s_map_coords {
 	int	x;
 	int	y;
 }				t_map_coords;
 
+// records the live coordinates of the player sprite
 typedef struct s_player_coords {
 	int	column;
 	int	row;
 }				t_player_coords;
 
+// Data to create a image using mlx
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -51,6 +58,7 @@ typedef struct	s_data {
 	int		img_width;
 }				t_data;
 
+// all the info needed to create/run the game
 typedef struct	s_game
 {
 	void 			*mlx;
@@ -61,6 +69,7 @@ typedef struct	s_game
 	int 			exits;
 	int 			players;
 	int 			collectibles;
+	int				moves;
 	t_player_coords player_position;
 	t_data			img_floor;
 	t_data			img_wall;
@@ -69,23 +78,28 @@ typedef struct	s_game
 	t_data			img_exit;
 }				t_game;
 
+// frees the memory allocated to creating the map array
+int 	free_array(t_game *game_info);
 
-int free_array(t_game *game_info);
+// handles the different types of errors
+int 	error(char *type, t_game *info);
 
-int error(char *type, t_game *info);
-int handle_map(char *file, t_game *info);
-int handle_window(t_game *game_info);
+int 	handle_map(char *file, t_game *info);
+int 	handle_window(t_game *game_info);
 
-int	ft_close(t_game *vars);
-int	key_hook(int keycode, t_game *vars);
-int	xpm_to_image_wrapper(t_game *game, t_data *image, char *filename);
-int	load_textures(t_game *info);
+// Function to terminate the game and close window by freeing the array using free_array() and mlx_destroy_image() and mlx_destroy_windows()
+int		ft_close(t_game *vars);
+// Function to handle key presses
+int		key_hook(int keycode, t_game *vars);
+// Custom function to create the different mlx images from the custom sprites (ex. player.xpm) using mlx_xpm_file_to_image()
+int		xpm_to_image_wrapper(t_game *game, t_data *image, char *filename);
+// Loads the chosen sprites to the correspondent asset (ex. player, wall, floor, ...) in game using xpm_to_image_wrapper()
+int		load_textures(t_game *info);
+// Renders the asset to the window using mlx_put_image_to_window()
 void	render_asset(t_game *game, t_data *asset, t_map_coords *coords);
+// Defines where to render and size by ASSET_SIZE * x and ASSET_SIZE * y
 void	get_map_coordinates(int x, int y, t_map_coords *coords);
+// Renders the map based on the chosen .ber file uses rener_asset()
 void	render_map(t_game *game);
-
-int	key_hook(int keycode, t_game *vars);
-
-
 
 #endif
