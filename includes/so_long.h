@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:26:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 14:36:36 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 14:54:02 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 
-// Asset size defaulted to 64 -> .xpm files must be 64x64 pixels (not confirmed in code -> to do)
+// Asset size defaulted to 64 -> .xpm files must be 64x64 pixels
+// (not confirmed in code -> to do)
 # define ASSET_SIZE 64
 
 // Define the messages for error types
-# define ERROR_MAP_BORDER "Map not surrounded by walls (1)\n"
-# define ERROR_MAP_FILE "Map file not valid\n"
-# define ERROR_MAP_RECTANGLE "Map is not a rectangle\n"
-# define ERROR_MAP_ASSETS "There is atleast one type of asset missing, check the map before submiting\n"
+# define ERROR_MAP_BORDER "Map not surrounded by walls!\n"
+# define ERROR_MAP_FILE "Map file not valid!\n"
+# define ERROR_MAP_RECTANGLE "Map is not a rectangle!\n"
+# define ERROR_MAP_ASSETS "Asset missing!\n"
 # define END_GAME "Game Ended!!!!\n"
 
 /*
@@ -90,13 +91,18 @@ int		error(char *type, t_game *info, int is_error);
 int		handle_map(char *file, t_game *info);
 int		handle_window(t_game *game_info);
 
-// Function to terminate the game and close window by freeing the array using free_array() and mlx_destroy_image() and mlx_destroy_windows()
+// Function to terminate the game and close window
+//by freeing the array using free_array() and
+//mlx_destroy_image() and mlx_destroy_windows()
 int		ft_close(t_game *vars);
 // Function to handle key presses
 int		key_hook(int keycode, t_game *vars);
-// Custom function to create the different mlx images from the custom sprites (ex. player.xpm) using mlx_xpm_file_to_image()
+// Custom function to create the different mlx images
+//from the custom sprites (ex. player.xpm) using mlx_xpm_file_to_image()
 int		xpm_to_image_wrapper(t_game *game, t_data *image, char *filename);
-// Loads the chosen sprites to the correspondent asset (ex. player, wall, floor, ...) in game using xpm_to_image_wrapper()
+// Loads the chosen sprites to the correspondent
+//asset (ex. player, wall, floor, ...)
+//in game using xpm_to_image_wrapper()
 int		load_textures(t_game *info);
 // Renders the asset to the window using mlx_put_image_to_window()
 void	render_asset(t_game *game, t_data *asset, t_map_coords *coords);
