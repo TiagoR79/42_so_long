@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:34:51 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/13 12:10:47 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 11:21:55 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	ft_close(t_game *vars)
 	mlx_destroy_image(vars->mlx, vars->img_collectible.img);
 	mlx_destroy_image(vars->mlx, vars->img_exit.img);
 	mlx_destroy_image(vars->mlx, vars->img_wall.img);
-    mlx_destroy_window(vars->mlx, vars->window);
+	mlx_destroy_window(vars->mlx, vars->window);
 	exit(0);
-	return(1);
+	return (1);
 }
 
 void	render_asset(t_game *vars, t_data *asset, t_map_coords *coords)
@@ -68,11 +68,8 @@ void	render_map(t_game *vars)
 			render_asset(vars, asset, &coords);
 		}
 	}
-	/* printf("DEBUG:  %d\n", game->player_position.row);
-	printf("DEBUG:  %d\n", game->player_position.column); */
 }
 
-// Custom function to create the different mlx images from the custom sprites (ex. player.xpm) using mlx_xpm_file_to_image()
 int	xpm_to_image_wrapper(t_game *vars, t_data *image, char *filename)
 {
 	image->img = mlx_xpm_file_to_image(vars->mlx,
@@ -101,14 +98,15 @@ int	load_textures(t_game *vars)
 	return (1);
 }
 
-int handle_window(t_game *game_vars)
+int	handle_window(t_game *game_vars)
 {
-	// inits the mlx variables
 	game_vars->mlx = mlx_init();
-	// creates a window with the appropriate size
-	game_vars->window = mlx_new_window(game_vars->mlx, game_vars->map_x * ASSET_SIZE, game_vars->map_y * ASSET_SIZE, "Game Window");
-	// Loads the chosen sprites to the correspondent asset (ex. player, wall, floor, ...) in game using xpm_to_image_wrapper()
+	game_vars->window = mlx_new_window(
+			game_vars->mlx,
+			game_vars->map_x * ASSET_SIZE,
+			game_vars->map_y * ASSET_SIZE,
+			"Game Window");
 	load_textures(game_vars);
 	render_map(game_vars);
-	return(1);
+	return (1);
 }
