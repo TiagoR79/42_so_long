@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:26:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 11:49:05 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 14:36:36 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # define ERROR_MAP_FILE "Map file not valid\n"
 # define ERROR_MAP_RECTANGLE "Map is not a rectangle\n"
 # define ERROR_MAP_ASSETS "There is atleast one type of asset missing, check the map before submiting\n"
+# define END_GAME "Game Ended!!!!\n"
+
 /*
 # define ERROR_MAP_EXITS "There must be atleast one Exit\n"
 # define ERROR_MAP_PLAYERS "There must be atleast one Player\n"
@@ -83,7 +85,7 @@ typedef struct s_game
 int		free_array(t_game *game_info);
 
 // handles the different types of errors
-int		error(char *type, t_game *info);
+int		error(char *type, t_game *info, int is_error);
 
 int		handle_map(char *file, t_game *info);
 int		handle_window(t_game *game_info);

@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:25:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 11:26:35 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 14:38:10 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_game_info(t_game *vars)
 	vars->collectibles = 0;
 	vars->player_position.row = 0;
 	vars->player_position.column = 0;
-	vars->moves = 0;
+	vars->moves = 1;
 }
 
 int	free_array(t_game *game_info)

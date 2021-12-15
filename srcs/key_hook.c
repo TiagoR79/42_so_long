@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 12:47:47 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 12:36:44 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 14:37:27 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int	ft_close(t_game *vars)
 	mlx_destroy_image(vars->mlx, vars->img_exit.img);
 	mlx_destroy_image(vars->mlx, vars->img_wall.img);
 	mlx_destroy_window(vars->mlx, vars->window);
-	printf("\nMoves made: ");
-	printf("%d\n\n", vars->moves);
 	exit(0);
 	return (1);
 }
@@ -58,7 +56,10 @@ int	key_hook(int keycode, t_game *vars)
 			if (vars->collectibles > 0)
 				return (1);
 			else
+			{
 				vars->map_array[column][row] = '0';
+				error(END_GAME, vars, 0);
+			}
 		}
 		render_map(vars);
 	}
@@ -84,7 +85,10 @@ int	key_hook(int keycode, t_game *vars)
 			if (vars->collectibles > 0)
 				return (1);
 			else
+			{
 				vars->map_array[column][row] = '0';
+				error(END_GAME, vars, 0);
+			}
 		}
 		render_map(vars);
 	}
@@ -110,7 +114,10 @@ int	key_hook(int keycode, t_game *vars)
 			if (vars->collectibles > 0)
 				return (1);
 			else
+			{
 				vars->map_array[column][row] = '0';
+				error(END_GAME, vars, 0);
+			}
 		}
 		render_map(vars);
 	}
@@ -135,8 +142,11 @@ int	key_hook(int keycode, t_game *vars)
 		{
 			if (vars->collectibles > 0)
 				return (1);
-			else
+		else
+			{
 				vars->map_array[column][row] = '0';
+				error(END_GAME, vars, 0);
+			}
 		}
 		render_map(vars);
 	}
