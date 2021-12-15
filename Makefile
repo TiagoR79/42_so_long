@@ -6,7 +6,7 @@
 #    By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/19 11:25:50 by tribeiro          #+#    #+#              #
-#    Updated: 2021/12/15 10:56:38 by tribeiro         ###   ########.fr        #
+#    Updated: 2021/12/15 14:57:33 by tribeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ INC		=	./includes/*.h -I$(LIBFT_DIR)
 
 	# Compiling Variables #
 CC			=	gcc
-CFLAG		=	-Wall -Wextra -Werror -g #-fsanitize=address
+CFLAG		=	-Wall -Wextra -Werror -g -fsanitize=address
 
 FLAGS_LINUX	=	-lbsd -lmlx -lXext -lX11
 FLAGS_MAC	=	-lmlx -framework OpenGL -framework AppKit -lm

@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:49:18 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 14:31:29 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 14:59:28 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,11 @@ int	validate_map(t_game *info)
 				error(ERROR_MAP_BORDER, info, 1);
 			while (info->map_array[i][j] != '\0')
 			{
-				if (info->map_array[i][j] == 'E'
-						|| info->map_array[i][j] == 'e')
+				if (info->map_array[i][j] == 'E')
 					info->exits += 1;
-				if (info->map_array[i][j] == 'P'
-						|| info->map_array[i][j] == 'p')
+				if (info->map_array[i][j] == 'P')
 					info->players += 1;
-				if (info->map_array[i][j] == 'C'
-						|| info->map_array[i][j] == 'c')
+				if (info->map_array[i][j] == 'C')
 					info->collectibles += 1;
 				j++;
 			}

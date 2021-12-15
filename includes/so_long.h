@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:26:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 14:54:02 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:03:17 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define ERROR_MAP_FILE "Map file not valid!\n"
 # define ERROR_MAP_RECTANGLE "Map is not a rectangle!\n"
 # define ERROR_MAP_ASSETS "Asset missing!\n"
+# define ERROR_MAP_INPUT "Wrong input, only 1, 0, P, C, E are valid\n"
 # define END_GAME "Game Ended!!!!\n"
 
 /*

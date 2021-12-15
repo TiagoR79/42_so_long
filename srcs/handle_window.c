@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:34:51 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 12:33:02 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 15:03:31 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@ void	render_map(t_game *vars)
 				asset = &vars->img_wall;
 			else if (vars->map_array[column][row] == 'C')
 				asset = &vars->img_collectible;
-			else
+			else if (vars->map_array[column][row] == 'E')
 				asset = &vars->img_exit;
+			else
+				error(ERROR_MAP_INPUT, vars, 1);
 			render_asset(vars, asset, &coords);
 		}
 	}
