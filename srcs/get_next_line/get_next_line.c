@@ -6,13 +6,13 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 12:24:51 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/11/10 14:57:28 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 11:31:27 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/get_next_line.h"
 
-int		ft_to_line(char **str, char **line)
+int	ft_to_line(char **str, char **line)
 {
 	size_t	len;
 	char	*tmp;
@@ -39,7 +39,7 @@ int		ft_to_line(char **str, char **line)
 
 void	buffer_to_static(char **str, char *buffer, int ret)
 {
-	char *tmp;
+	char	*tmp;
 
 	buffer[ret] = '\0';
 	if (*str == NULL)
@@ -52,7 +52,7 @@ void	buffer_to_static(char **str, char *buffer, int ret)
 	}
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int			ret;
 	char		*buffer;

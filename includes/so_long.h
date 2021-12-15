@@ -6,22 +6,22 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:26:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/13 12:00:32 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 11:40:07 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
-#define SO_LONG_H
+# define SO_LONG_H
 
-#include "../includes/get_next_line.h"
-#include "../libft/libft.h"
-#include <mlx.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+# include "../includes/get_next_line.h"
+# include "../libft/libft.h"
+# include <mlx.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 // Asset size defaulted to 64 -> .xpm files must be 64x64 pixels (not confirmed in code -> to do)
 # define ASSET_SIZE 64
@@ -48,7 +48,7 @@ typedef struct s_player_coords {
 }				t_player_coords;
 
 // Data to create a image using mlx
-typedef struct	s_data {
+typedef struct s_data {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -59,33 +59,33 @@ typedef struct	s_data {
 }				t_data;
 
 // all the info needed to create/run the game
-typedef struct	s_game
+typedef struct s_game
 {
-	void 			*mlx;
-    void 			*window;
-	int 			map_x;
-	int 			map_y;
-	char 			**map_array;
-	int 			exits;
-	int 			players;
-	int 			collectibles;
+	void			*mlx;
+	void			*window;
+	int				map_x;
+	int				map_y;
+	char			**map_array;
+	int				exits;
+	int				players;
+	int				collectibles;
 	int				moves;
-	t_player_coords player_position;
+	t_player_coords	player_position;
 	t_data			img_floor;
 	t_data			img_wall;
 	t_data			img_player;
 	t_data			img_collectible;
-	t_data			img_exit;
+	t_data			mg_exit;
 }				t_game;
 
 // frees the memory allocated to creating the map array
-int 	free_array(t_game *game_info);
+int		free_array(t_game *game_info);
 
 // handles the different types of errors
-int 	error(char *type, t_game *info);
+int		error(char *type, t_game *info);
 
-int 	handle_map(char *file, t_game *info);
-int 	handle_window(t_game *game_info);
+int		handle_map(char *file, t_game *info);
+int		handle_window(t_game *game_info);
 
 // Function to terminate the game and close window by freeing the array using free_array() and mlx_destroy_image() and mlx_destroy_windows()
 int		ft_close(t_game *vars);
