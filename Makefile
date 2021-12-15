@@ -6,7 +6,7 @@
 #    By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/19 11:25:50 by tribeiro          #+#    #+#              #
-#    Updated: 2021/11/29 15:51:01 by tribeiro         ###   ########.fr        #
+#    Updated: 2021/12/15 10:56:38 by tribeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,11 +42,10 @@ compile_libraries:
 $(NAME): all
 
 $(NAME): compile_libraries #$(LIBFT) $(SRC)
-#	@$(CC) $(CFLAG) $(FLAGS_MAC) $(SRC) -o $(NAME)
-	@ $(CC) $(CFLAG) $(SRC) $(FLAGS_LINUX) -o $(NAME)
+	@$(CC) $(CFLAG) $(FLAGS_MAC) $(SRC) -o $(NAME)
+#	@ $(CC) $(CFLAG) $(SRC) $(FLAGS_LINUX) -o $(NAME)
 	@printf "so_long ready.\n"
 	@printf "\n=========================\n\n"
-
 
 clean:
 	rm -f $(NAME)

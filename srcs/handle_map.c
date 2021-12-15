@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:49:18 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/13 12:04:34 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 11:04:56 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int validate_map(t_game *info)
 	int j;
 
 	i = -1;
-	// Loop iterates the map_array line by line
 	while (++i < info->map_y)
 	{
 		j = 0;
