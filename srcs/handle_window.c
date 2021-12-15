@@ -6,24 +6,11 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:34:51 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 11:21:55 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:33:02 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-int	ft_close(t_game *vars)
-{
-	free_array(vars);
-	mlx_destroy_image(vars->mlx, vars->img_floor.img);
-	mlx_destroy_image(vars->mlx, vars->img_player.img);
-	mlx_destroy_image(vars->mlx, vars->img_collectible.img);
-	mlx_destroy_image(vars->mlx, vars->img_exit.img);
-	mlx_destroy_image(vars->mlx, vars->img_wall.img);
-	mlx_destroy_window(vars->mlx, vars->window);
-	exit(0);
-	return (1);
-}
 
 void	render_asset(t_game *vars, t_data *asset, t_map_coords *coords)
 {

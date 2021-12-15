@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:26:17 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 11:40:07 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 11:49:05 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 // Define the messages for error types
 # define ERROR_MAP_BORDER "Map not surrounded by walls (1)\n"
+# define ERROR_MAP_FILE "Map file not valid\n"
 # define ERROR_MAP_RECTANGLE "Map is not a rectangle\n"
 # define ERROR_MAP_ASSETS "There is atleast one type of asset missing, check the map before submiting\n"
 /*
@@ -75,7 +76,7 @@ typedef struct s_game
 	t_data			img_wall;
 	t_data			img_player;
 	t_data			img_collectible;
-	t_data			mg_exit;
+	t_data			img_exit;
 }				t_game;
 
 // frees the memory allocated to creating the map array

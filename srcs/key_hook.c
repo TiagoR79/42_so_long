@@ -6,11 +6,26 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 12:47:47 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 11:25:04 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:36:44 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+int	ft_close(t_game *vars)
+{
+	free_array(vars);
+	mlx_destroy_image(vars->mlx, vars->img_floor.img);
+	mlx_destroy_image(vars->mlx, vars->img_player.img);
+	mlx_destroy_image(vars->mlx, vars->img_collectible.img);
+	mlx_destroy_image(vars->mlx, vars->img_exit.img);
+	mlx_destroy_image(vars->mlx, vars->img_wall.img);
+	mlx_destroy_window(vars->mlx, vars->window);
+	printf("\nMoves made: ");
+	printf("%d\n\n", vars->moves);
+	exit(0);
+	return (1);
+}
 
 int	key_hook(int keycode, t_game *vars)
 {
@@ -125,6 +140,6 @@ int	key_hook(int keycode, t_game *vars)
 		}
 		render_map(vars);
 	}
-	printf("Moves: \r%d", ++vars->moves);
+	++vars->moves;
 	return (1);
 }

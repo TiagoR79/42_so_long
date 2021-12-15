@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 11:13:05 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 10:59:44 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 11:51:47 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	error(char *type, t_game *info)
 	int	i;
 
 	i = 0;
-	printf("\nError\n");
-	printf("\n%s\n", type);
+	printf("\nError: \n");
+	printf("\n\t%s\n", type);
 	while (i < info->map_y)
 		free(info->map_array[i++]);
 	free(info->map_array);

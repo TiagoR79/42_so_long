@@ -6,7 +6,7 @@
 /*   By: tribeiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 11:49:18 by tribeiro          #+#    #+#             */
-/*   Updated: 2021/12/15 11:27:57 by tribeiro         ###   ########.fr       */
+/*   Updated: 2021/12/15 12:26:05 by tribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,10 @@ int	handle_map(char *file, t_game *info)
 	i = 0;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
+	{
+		printf("\nError: Map file not valid\n\n");
 		exit(0);
+	}
 	info->map_array = malloc(sizeof(char *) * 1000);
 	while (get_next_line(fd, &line))
 	{
